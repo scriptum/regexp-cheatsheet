@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Регулярные выражения</title>
+		<style>
+		table.content-table {
+			width:83mm;
+			border:1px solid #46f;
+			border-collapse:collapse;
+			font-family:sans-serif;
+			font-size:10pt;
+		}
+		.container {float:left;}
+		table.content-table {margin:1em}
+		.content-table td, th {padding:0.5ex;}
+		.content-table td:nth-child(1) {width:25%}
+		.samewidth td {width:20% ! important}
+		.content-table tr:nth-child(even) {background: #def;}
+		.content-table tr:nth-child(odd)  {background: #cdf;}
+		.content-table tr:nth-child(even) td:nth-child(even) {background: #fff;}
+		.content-table tr:nth-child(odd)  td:nth-child(even) {background: #def;}
+		.content-table th                 {background: #46f; color:#fff; font-size:11pt}
+		tr.hr td {background: #46f ! important; height:1px;}
+		tr.hr td {padding:0;}
+		td {vertical-align:top;}
+	</style>
+	</head>
+	<body>
+		<center><h3>Регулярные выражения</h3></center>
+		<div class="container">
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Позиция внутри строки</th>
+					</tr>
+					<tr>
+						<td><pre>^</pre></td>
+						<td>Начало строки</td>
+					</tr>
+					<tr>
+						<td><pre>$</pre></td>
+						<td>Конец строки</td>
+					</tr>
+					<tr>
+						<td><pre>\b</pre></td>
+						<td>Граница слова</td>
+					</tr>
+					<tr>
+						<td><pre>\B</pre></td>
+						<td>Не граница слова</td>
+					</tr>
+					<tr>
+						<td><pre>\&lt;</pre></td>
+						<td>Начало слова</td>
+					</tr>
+					<tr>
+						<td><pre>\&gt;</pre></td>
+						<td>Конец слова</td>
+					</tr>
+					<tr>
+						<td><pre>\G</pre></td>
+						<td>Предыдущий успешный поиск</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Символьные классы</th>
+					</tr>
+					<tr>
+						<td><pre>\d</pre></td>
+						<td>Цифры</td>
+					</tr>
+					<tr>
+						<td><pre>\D</pre></td>
+						<td>Не цифры</td>
+					</tr>
+					<tr>
+						<td><pre>\s</pre></td>
+						<td>Пробельные символы</td>
+					</tr>
+					<tr>
+						<td><pre>\S</pre></td>
+						<td>Непробельные символы</td>
+					</tr>
+					<tr>
+						<td><pre>\w</pre></td>
+						<td>Слово</td>
+					</tr>
+					<tr>
+						<td><pre>\W</pre></td>
+						<td>Не слово</td>
+					</tr>
+					<tr>
+						<td><pre>\c</pre></td>
+						<td>Управляющие символы</td>
+					</tr>
+					<tr>
+						<td><pre>\x</pre></td>
+						<td>Шестнадцатиричные символы</td>
+					</tr>
+					<tr>
+						<td><pre>\O</pre></td>
+						<td>Восьмеричные символы</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Квантификаторы</th>
+					</tr>
+					<tr>
+						<td><pre>?</pre></td>
+						<td>0 или 1 раз</td>
+					</tr>
+					<tr>
+						<td><pre>*</pre></td>
+						<td>0 и более</td>
+					</tr>
+					<tr>
+						<td><pre>+</pre></td>
+						<td>1 и более</td>
+					</tr>
+					<tr>
+						<td><pre>{n}</pre></td>
+						<td>Точно n раз</td>
+					</tr>
+					<tr>
+						<td><pre>{n,m}</pre></td>
+						<td>От n до m включительно</td>
+					</tr>
+					<tr>
+						<td><pre>{n,}</pre></td>
+						<td>Не менее n раз</td>
+					</tr>
+					<tr>
+						<td><pre>{,n}</pre></td>
+						<td>Не более n раз</td>
+					</tr>
+					<tr class="hr"><td></td><td></td></tr><tr class="hr"><td></td><td></td></tr>
+					<tr>
+						<td colspan="2" align="center">Добавить ?, чтобы сделать нежадным</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">Добавить +, чтобы сделать сверхжадным</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Символы экранирования</th>
+					</tr>
+					<tr>
+						<td><pre>\</pre></td>
+						<td>Экранировать следующий символ</td>
+					</tr>
+					<tr>
+						<td><pre>\Q</pre></td>
+						<td>Начало экранированной последовательности</td>
+					</tr>
+					<tr>
+						<td><pre>\E</pre></td>
+						<td>Конец экранированной последовательности</td>
+					</tr>
+					<tr class="hr"><td></td><td></td></tr><tr class="hr"><td></td><td></td></tr>
+					<tr>
+						<td colspan="2" align="center">Экранирование используется, если не нужно интерпретировать специальные символы</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table samewidth">
+				<tbody>
+					<tr>
+						<th colspan="5">Метасимволы</th>
+					</tr>
+					<tr>
+						<td align="center"><pre>^</pre></td>
+						<td align="center"><pre>$</pre></td>
+						<td align="center"><pre>(</pre></td>
+						<td align="center"><pre>)</pre></td>
+						<td align="center"><pre>\</pre></td>
+					</tr>
+					<tr>
+						<td align="center"><pre>&lt;</pre></td>
+						<td align="center"><pre>&gt;</pre></td>
+						<td align="center"><pre>[</pre></td>
+						<td align="center"><pre>]</pre></td>
+						<td align="center"><pre>?</pre></td>
+					</tr>
+					<tr>
+						<td align="center"><pre>|</pre></td>
+						<td align="center"><pre>.</pre></td>
+						<td align="center"><pre>*</pre></td>
+						<td align="center"><pre>+</pre></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr class="hr"><td colspan="5"></td></tr><tr class="hr"><td colspan="5"></td></tr>
+					<tr>
+						<td colspan="5" align="center">Используйте для экранирования: \</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="container">
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Спецсимволы</th>
+					</tr>
+					<tr>
+						<td><pre>\n</pre></td>
+						<td>Новая строка</td>
+					</tr>
+					<tr>
+						<td><pre>\r</pre></td>
+						<td>Возврат каретки</td>
+					</tr>
+					<tr>
+						<td><pre>\t</pre></td>
+						<td>Табуляция</td>
+					</tr>
+					<tr>
+						<td><pre>\v</pre></td>
+						<td>Вертикальная табуляция</td>
+					</tr>
+					<tr>
+						<td><pre>\xxx</pre></td>
+						<td>Восьмеричный код символа xxx</td>
+					</tr>
+					<tr>
+						<td><pre>\xhh</pre></td>
+						<td>Шестнадцатеричный код символа hh</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Модификаторы</th>
+					</tr>
+					<tr>
+						<td><pre>i</pre></td>
+						<td>Регистронезависимость</td>
+					</tr>
+					<tr>
+						<td><pre>s</pre></td>
+						<td>Метасимвол . включает \n и \r</td>
+					</tr>
+					<tr>
+						<td><pre>m</pre></td>
+						<td>Метасимволы $ и ^ действуют построчно</td>
+					</tr>
+					<tr>
+						<td><pre>x</pre></td>
+						<td>Режим без учёта пробелов в выражении</td>
+					</tr>
+					<tr class="hr"><td></td><td></td></tr><tr class="hr"><td></td><td></td></tr>
+					<tr>
+						<td colspan="2" align="center">В выражении (?X) включает модификатор X,<br />(?-X) &mdash; выключает.</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Группы</th>
+					</tr>
+					<tr>
+						<td><pre>.</pre></td>
+						<td>Любой символ кроме \n и \r</td>
+					</tr>
+					<tr>
+						<td><pre>(...)</pre></td>
+						<td>Группа, запомнить шаблон</td>
+					</tr>
+					<tr>
+						<td><pre>(?:...)</pre></td>
+						<td>Группа, но без запоминания</td>
+					</tr>
+					<tr>
+						<td><pre>(?>...)</pre></td>
+						<td>Группа, без запоминания и возврата</td>
+					</tr>
+					<tr>
+						<td><pre>(A|B)</pre></td>
+						<td>A или B с группой</td>
+					</tr>
+					<tr>
+						<td><pre>(?:A|B)</pre></td>
+						<td>Без захвата - быстрее, чем (A|B)</td>
+					</tr>
+					<tr>
+						<td><pre>[a-q]</pre></td>
+						<td>Диапазон: от a до q</td>
+					</tr>
+					<tr>
+						<td><pre>[0-7]</pre></td>
+						<td>Диапазон: от 0 до 7</td>
+					</tr>
+					<tr>
+						<td><pre>[acz]</pre></td>
+						<td>Перечисление: a, c, z</td>
+					</tr>
+					<tr>
+						<td><pre>[a-z0-9_]</pre></td>
+						<td>Буквы (нижний регистр), цифры, _</td>
+					</tr>
+					<tr>
+						<td><pre>[^...]</pre></td>
+						<td>Все символы кроме перечисленных</td>
+					</tr>
+					<tr>
+						<td><pre>\N</pre></td>
+						<td>N-ная группа</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Поиск вперед и назад</th>
+					</tr>
+					<tr>
+						<td><pre>(?=шаблон)</pre></td>
+						<td>Позитивный просмотр вперёд</td>
+					</tr>
+					<tr>
+						<td><pre>(?!шаблон)</pre></td>
+						<td>Негативный просмотр вперёд</td>
+					</tr>
+					<tr>
+						<td><pre>(?&lt;=шаблон)</pre></td>
+						<td>Позитивный просмотр назад</td>
+					</tr>
+					<tr>
+						<td><pre>(?&lt;!шаблон)</pre></td>
+						<td>Негативный просмотр назад</td>
+					</tr>
+					<tr>
+						<td><pre>(?(?=IF)A|B)</pre></td>
+						<td>Если IF истинно, то A, иначе B</td>
+					</tr>
+					<tr>
+						<td><pre>(?(N)A|B)</pre></td>
+						<td>Если группа N, то A, иначе B</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="content-table">
+				<tbody>
+					<tr>
+						<th colspan="2">Рекурсивные выражения</th>
+					</tr>
+					<tr>
+						<td><pre>(?R)</pre></td>
+						<td>Рекурсивный просмотр шаблона</td>
+					</tr>
+					<tr>
+						<td><pre>(?N)</pre></td>
+						<td>Рекурсивный просмотр N-й группы</td>
+					</tr>
+					<tr class="hr"><td></td><td></td></tr><tr class="hr"><td></td><td></td></tr>
+					<tr>
+						<td colspan="2" align="center"><pre>/(?=(\((?>(?1)|.)*?\)))/s</pre> - найти все выражения в скобках</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
